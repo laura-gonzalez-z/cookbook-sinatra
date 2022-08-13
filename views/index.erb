@@ -1,0 +1,9 @@
+<h1 class="mb-4">Welcome to your Cookbook!</h1>
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li>
+      <%= recipe.name %>
+    </li>
+  <% end %>
+</ul>
+<a class="btn btn-primary" href="/new">Create a new recipe</a>
