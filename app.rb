@@ -2,7 +2,8 @@ require "sinatra"
 require "sinatra/reloader" if development?
 require "pry-byebug"
 require "better_errors"
-require_relative 'cookbook'
+require_relative "cookbook"
+require_relative "recipe"
 
 configure :development do
   use BetterErrors::Middleware
@@ -21,5 +22,13 @@ get "/new" do
 end
 
 post '/recipe' do
-  name = params['recipeName']
+  csv_file   = File.join(__dir__, 'recipes.csv')
+  cookbook   = Cookbook.new(csv_file)
+  name = params[:recipeName]
+  description = params[:recipeDescription]
+  rating = params[:recipeRating]
+  prep_time = params[:recipePrepTime]
+  recipe = Recipe.new(name: name, description: description, rating: rating, prep_time: prep_time, done: false)
+  cookbook.add_recipe(recipe)
+  redirect to "/"
 end

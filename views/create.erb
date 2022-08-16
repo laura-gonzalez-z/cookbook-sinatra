@@ -2,20 +2,20 @@
 <form action="/recipe" method="post">
   <div class="mb-3">
     <label for="recipeName" class="form-label">Recipe Name</label>
-    <input type="text" class="form-control" id="recipeName">
+    <input type="text" class="form-control" id="recipeName" name="recipeName">
   </div>
   <div class="mb-3">
     <label for="recipeDescription" class="form-label">Description</label>
-    <textarea class="form-control" id="recipeDescription"></textarea>
+    <textarea class="form-control" id="recipeDescription" name="recipeDescription"></textarea>
   </div>
   <div class="mb-3">
     <label for="recipeRating" class="form-label">Rating</label>
-    <input type="number" min="1" max="5" class="form-control" id="recipeRating" aria-describedby="ratingHelp">
+    <input type="number" min="1" max="5" class="form-control" id="recipeRating" name="recipeRating" aria-describedby="ratingHelp">
     <div id="ratingHelp" class="form-text">Add a number from 1 to 5</div>
   </div>
   <div class="mb-3">
     <label for="recipePrepTime" class="form-label">Preparation Time</label>
-    <input type="text" class="form-control" id="recipePrepTime">
+    <input type="text" class="form-control" id="recipePrepTime" name="recipePrepTime">
   </div>
   <button type="submit" class="btn btn-primary">Create</button>
 </form>
